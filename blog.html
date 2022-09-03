@@ -44,7 +44,7 @@
         </li>
 
         <li class="nav-item active">
-          <a class="nav-link active" href="#">News</a>
+          <a id="news" class="nav-link active" style="cursor:pointer">News</a>
         </li>
         <li class="nav-item">
           <a id="blog" class="nav-link " style="cursor:pointer">Blog</a>
@@ -203,6 +203,11 @@
 				</div>
 			</div>
 		</footer>
+    <script>
+      document.getElementById('news').addEventListener('click', function () {
+      window.location = 'index.html';
+    });
+    </script>
 
 		<script
 			src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"

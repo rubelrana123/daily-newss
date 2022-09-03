@@ -25,7 +25,10 @@ const displayCategory = (categories) => {
 
 
 const loadNews = async (category_id) => {
-  
+   const spinner = document.getElementById('spinner');
+   spinner.classList.remove('d-none')
+
+  //  spinner.innerText = " ";
 	// console.log(category_id);
 	const url = ` https://openapi.programming-hero.com/api/news/category/${category_id}`;
 	const res = await fetch(url);
@@ -33,20 +36,35 @@ const loadNews = async (category_id) => {
 	displaynews(categoryNews.data);
 };
 
+
 const displaynews = (Allnews) => {
 
 	if (Allnews.length === 0) {
 		const foundContainer = document.getElementById('foundContainer');
 		foundContainer.classList.remove('d-none');
+          const spinner = document.getElementById('spinner');
+					spinner.classList.add('d-none');
 	} else {
 		foundContainer.classList.add('d-none');
 	}
+
+  
 	// console.log(Allnews);
 	const newsCount = document.getElementById('newsCount');
 	newsCount.innerText = Allnews.length;
 	const cardContainer = document.getElementById('card-container');
 	cardContainer.innerText = ' ';
+  // const array = [];
 	Allnews.forEach((news) => {
+        // const veiwCount = news.total_view;
+        // if(veiwCount != null) {
+        // array.push(veiwCount);
+        //   console.log(veiwCount)
+        // }
+
+
+        // console.log(veiwCount)
+
 		// console.log(news._id);
 		const div = document.createElement('div');
 		div.classList.add('row', 'g-5', 'mb-5', 'border-bottom');
@@ -92,7 +110,11 @@ const displaynews = (Allnews) => {
     
     `;
 		cardContainer.appendChild(div);
+      const spinner = document.getElementById('spinner');
+			spinner.classList.add('d-none');
 	});
+  // console.log(array);
+
 };
 
 const loadModalDetails = async(news_id) => {
@@ -142,4 +164,4 @@ loadCategory();
 
 document.getElementById('blog').addEventListener('click', function () {
   window.location = 'blog.html';
-})
+});
