@@ -58,7 +58,7 @@ const displaynews = (Allnews) => {
           </div>
           <div class="col-md-8">
             <div class="card-body">
-              <h5 class="card-title">${news.title}</h5>
+              <h5 class="card-title h4">${news.title}</h5>
               <p class="card-text">${
 								news.details
 									? news.details.slice(0, 200) + '...'
@@ -141,5 +141,5 @@ loadCategory();
 // blog .......
 
 document.getElementById('blog').addEventListener('click', function () {
-  window.location = 'bank.html';
+  window.location = 'blog.html';
 })
