@@ -6,10 +6,10 @@ const loadCategory = async () => {
 };
 
 const displayCategory = (categories) => {
-	console.log(categories);
+	// console.log(categories);
 	const categoryItem = document.getElementById('categoryItem');
 	categories.forEach((category) => {
-		console.log(category);
+		// console.log(category);
 
 		const div = document.createElement('div');
 		// div.classList.add("col")
@@ -26,7 +26,7 @@ const displayCategory = (categories) => {
 
 const loadNews = async (category_id) => {
   
-	console.log(category_id);
+	// console.log(category_id);
 	const url = ` https://openapi.programming-hero.com/api/news/category/${category_id}`;
 	const res = await fetch(url);
 	const categoryNews = await res.json().catch((error) => console.log(error));
@@ -41,13 +41,13 @@ const displaynews = (Allnews) => {
 	} else {
 		foundContainer.classList.add('d-none');
 	}
-	console.log(Allnews);
+	// console.log(Allnews);
 	const newsCount = document.getElementById('newsCount');
 	newsCount.innerText = Allnews.length;
 	const cardContainer = document.getElementById('card-container');
 	cardContainer.innerText = ' ';
 	Allnews.forEach((news) => {
-		console.log(news.author.img);
+		// console.log(news._id);
 		const div = document.createElement('div');
 		div.classList.add('row', 'g-5', 'mb-5', 'border');
 		div.innerHTML = `
@@ -87,7 +87,8 @@ const displaynews = (Allnews) => {
                    <span>${news.total_view}</span>
                 </p>
                   </div>
-                  <button type="button" class="btn btn-primary" style ="height: 60px">See More</button>
+                  <button onclick ="loadModalDetails('${news._id}')" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newsDetailsModal" style ="height: 60px">See More</button>
+                 
               
               </div>
             </div>
@@ -97,4 +98,20 @@ const displaynews = (Allnews) => {
 		cardContainer.appendChild(div);
 	});
 };
+
+const loadModalDetails = async(news_id) => {
+  // console.log(news_id)
+  	const url = `https://openapi.programming-hero.com/api/news/${news_id}`;
+	const res = await fetch(url);
+	const detailsData = await res.json()
+  .catch((error) => console.log(error));
+	displayLoadMoal(detailsData.data);
+}
+ const displayLoadMoal = (modalAllDetails) => {
+	console.log(modalAllDetails);
+  modalAllDetails.forEach(details => {
+    console.log(details)
+  })
+};
+loadModalDetails();
 loadCategory();
