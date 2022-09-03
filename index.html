@@ -5,40 +5,88 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Daily News</title>
+
   <!-- favicon -->
   <link rel="shortcut icon" href="image/Screenshot 2022-09-02 214041.png" type="image/x-icon">
   <!-- bootstrap cdn -->
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 </head>
-<body>
-  <header>
+<body class="bg-light">
+
+  <header class="">
     <!-- navigation -->
-    <nav class="navbar navbar-expand-lg bg-light">
-  <div class="container-fluid">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+   <nav class="navbar  navbar-expand-lg bg-light">
+  <div class="container border-bottom">
+    <a class="navbar-brand display-1 fw-bold text-primary" href="#">
+      Daily News
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-      <a class="navbar-brand" href="#">Hidden brand</a>
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+    <div class="collapse navbar-collapse" class="d-flex justify-content-end " id="navbarTogglerDemo02">
+      <ul class="navbar-nav  mb-2 mb-lg-0">
+
+        <li class="nav-item ">
+          <a class="nav-link" href="#">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
+          <a class="nav-link ">About</a>
+        </li>
+
+        <li class="nav-item active">
+          <a class="nav-link active" href="#">News</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled">Disabled</a>
+          <a class="nav-link ">Blog</a>
         </li>
+
       </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+      <!-- <div>
+        <img src="image/Avatar.png" alt="">
+      </div> -->
+
     </div>
   </div>
 </nav>
-  </header>
+<!-- sub hheaderr -->
+ <section class="">
+   <div  class=" bg-light  text-center">
+    <div id="categoryItem" class=" container  d-flex justify-content-around">
+
+
+    </div>
+   
+ 
+</div>
+ </section>
+  </header> 
+
+  <main>
+    <!-- Count section -->
+    <section class="bg-light">
+      <div class="container mx-auto   p-2 bg-white" style="height: 250px; width: 100%;">
+        <p class="pt-2 h3"><span id="newsCount">0</span> News found </p>
+      </div>
+    </section>
+    <!-- card -->
+    <section>
+      <!-- spinner -->
+      <div id="spinner" class=" d-none d-flex justify-content-center">
+      <div class="spinner-border" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+      <!-- style="max-width: 540px; -->
+      <div id="card-container" class=" container bg-light card mb-3 mt-5" ">
+       
+      </div>
+      <!-- not found -->
+
+      <div id="foundContainer" class="text-danger d-none fw-bold text-center display-1">
+        News UpComing.....
+      </div>
+    </section>
+  </main>
   
 
   <!-- bootstrap script File -->
