@@ -14,7 +14,7 @@ const displayCategory = (categories) => {
 		const div = document.createElement('div');
 		// div.classList.add("col")
 		div.innerHTML = `
-     <div onclick ="loadNews('${category.category_id}')" style="cursor: pointer;">${category.category_name}</div>
+     <div class= "p-2" onclick ="loadNews('${category.category_id}')" style="cursor: pointer;">${category.category_name}</div>
     
     `;
 		categoryItem.appendChild(div);
@@ -131,6 +131,7 @@ const loadModalDetails = async(news_id) => {
     console.log(details)
     document.getElementById('newsDetailsModalLabel').innerText = details.title;
     const modalbody = document.getElementById('modal-body');
+    
     modalbody.innerHTML = `
      <img  src = "${
 				details.image_url ? details.image_url : 'not available image'
